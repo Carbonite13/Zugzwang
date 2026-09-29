@@ -1,1 +1,12 @@
+# Configuration variables and secrets
+config/*
+!config/env.example
+
+# python virtual environment
+.venv
+__pycache__
+*.pyc
+
+# poetry files
+poetry.lock
 
