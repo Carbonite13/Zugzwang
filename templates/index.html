@@ -1,9 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}
-Zugzwang
-{% endblock %}
+{% block title %}{{ config.APP_NAME }} – When every move is the wrong move.{% endblock %}
 
 {% block content %}
+<section class="flex flex-col items-center justify-center gap-8 px-6 py-24 text-center">
 
-{% endblock content %}
+    <!-- Hero heading -->
+    <h1 class="text-xxl-custom font-neuton font-bold leading-tight tracking-tight text-btn-dark">
+        Zugzwang
+    </h1>
+    <p class="max-w-md text-lg-custom text-btn-dark/70 font-neuton">
+        When every move is the <em>wrong</em> move. Analyse your position, solve
+        puzzles, and find your way out.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/auth/register" class="inline-block bg-btn-dark text-bg-ivory font-neuton font-semibold
+                  px-8 py-3 rounded hover:bg-btn-gold hover:text-btn-dark
+                  transition-colors duration-200">
+            Join the Club
+        </a>
+        <a href="/auth/login" class="inline-block border border-btn-dark text-btn-dark font-neuton font-semibold
+                  px-8 py-3 rounded hover:bg-btn-dark hover:text-bg-ivory
+                  transition-colors duration-200">
+            Sign In
+        </a>
+    </div>
+
+</section>
+{% endblock %}

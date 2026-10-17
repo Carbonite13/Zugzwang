@@ -1,37 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="{{ config.APP_NAME }} is a web application for managing the state of a chess game and offering chess puzzles based on it.">
+        content="{{ config.APP_NAME }} – a web application for managing the state of a chess game and offering chess puzzles.">
     <meta name="author" content="{{ config.AUTHOR_NAME }}">
     <meta name="version" content="{{ config.VERSION }}">
-    <meta name="keywords" content="chess,zugzwang,webapplication,engine,analysis,puzzles">
+    <meta name="keywords" content="chess,zugzwang,web application,engine,analysis,puzzles">
     <title>{% block title %}{{ config.APP_NAME }}{% endblock %}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', '/css/global.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', '/css/header.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', '/css/footer.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', 'favicon.ico') }}" type="image/x-icon">
+    <!-- Tailwind CSS CDN (Play CDN for development; swap for a built bundle in production) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Tailwind configuration + HeadsUp custom design-token overrides -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Warm ivory / parchment palette – matches global.css variables
+                        'bg-ivory':   '#fafafa',
+                        'bg-beige':   '#ffebd4',
+                        'bg-tan':     '#f4c08d',
+                        'btn-gold':   '#d99b27',
+                        'btn-dark':   '#010e00',
+                    },
+                    fontFamily: {
+                        neuton: ['"Neuton"', 'serif'],
+                    },
+                    fontSize: {
+                        'xs-custom':  '0.75rem',
+                        'med-custom': '1rem',
+                        'lg-custom':  '1.5rem',
+                        'xl-custom':  '2rem',
+                        'xxl-custom': '4rem',
+                    },
+                    spacing: {
+                        'xs-s':  '0.125rem',
+                        'sm-s':  '0.25rem',
+                        'md-s':  '0.5rem',
+                        'lg-s':  '1rem',
+                        'xl-s':  '2rem',
+                        'xxl-s': '4rem',
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Google Fonts: Neuton (matches existing global.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- Project-wide custom CSS (preserved alongside Tailwind) -->
+    <link rel="stylesheet" href="{{ request.url_for('static', path='css/global.css') }}">
+    <link rel="stylesheet" href="{{ request.url_for('static', path='css/header.css') }}">
+    <link rel="stylesheet" href="{{ request.url_for('static', path='css/footer.css') }}">
+    <link rel="shortcut icon" href="{{ request.url_for('static', path='favicon.ico') }}" type="image/x-icon">
+
+    {% block head %}{% endblock %}
 </head>
 
-<body>
+<body class="h-full bg-bg-beige font-neuton text-btn-dark antialiased">
+
     {% include "header.html" %}
 
-    {% block content %}
-    {# The main content will be in this block, this should be overridden in the inheriting
-    templates
-    #}
-    {% endblock %}
+    <main class="min-h-[calc(100vh-100px)] w-full">
+        {% block content %}
+        {# The main content will be in this block; override in child templates. #}
+        {% endblock %}
+    </main>
 
     {% include "footer.html" %}
 
     {% block scripts %}
-    {# The JS files will be included here #}
+    {# Page-specific JS files go here. #}
     {% endblock %}
+
 </body>
 
 </html>
