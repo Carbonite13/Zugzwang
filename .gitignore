@@ -1,6 +1,6 @@
 # Configuration variables and secrets
 config/*
-!config/env.example
+!config/.env.example
 
 # python virtual environment
 .venv
@@ -10,3 +10,4 @@ __pycache__
 # poetry files
 poetry.lock
 
+temp

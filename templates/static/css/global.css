@@ -1,0 +1,87 @@
+/* Define all variables and standardized units which will be used all along the website */
+
+@import url("https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
+
+:root {
+  --bg-light-white: #fafafa;
+  --bg-light-biege: #ffebd4;
+  --bg-light-tan: #f4c08d;
+
+  --text-sm: 12px;
+  --text-med: 16px;
+  --text-lg: 24px;
+  --text-xl: 32px;
+  --text-xxl: 64px;
+
+  --fs-sm: 0.75rem;
+  --fs-med: 1rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+  --fs-xxl: 4rem;
+
+  --spacing-xs: 0.125rem;
+  --spacing-sm: 0.25rem;
+  --spacing-med: 0.5rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 4rem;
+
+  --button-bg-light: #d99b27;
+  --button-bg-dark: #010e00;
+
+  --button-fg-light: #e8e8e8;
+  --button-fg-dark: #010e00;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  color: black;
+  background: #f4c08d90;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-light-biege);
+}
+
+.neuton-extralight {
+  font-family: "Neuton", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.neuton-light {
+  font-family: "Neuton", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.neuton-regular {
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.neuton-bold {
+  font-family: "Neuton", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.neuton-extrabold {
+  font-family: "Neuton", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.neuton-regular-italic {
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-style: italic;
+}
